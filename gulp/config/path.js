@@ -7,13 +7,19 @@ const srcFolder = "./src";
 
 export const path = {
   build: {
+    css: `${buildFolder}/css/`,
+    html: `${buildFolder}/`,
     files: `${buildFolder}/`,
   },
   src: {
-    files: `${srcFolder}/**/*.*`,
+    scss: `${srcFolder}/scss/style.scss`,
+    html: `${srcFolder}/*.html`,
+    files: `${srcFolder}/files/**/*.*`,
   },
   watch: {
-    files: `${srcFolder}/**/*.*`,
+    scss: `${srcFolder}/scss/**/*.scss`,
+    html: `${srcFolder}/**/*.html`,
+    files: `${srcFolder}/files/**/*.*`,
   },
   clean: buildFolder,
   buildFolder: buildFolder,

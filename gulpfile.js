@@ -15,6 +15,10 @@ import { html } from "./gulp/tasks/html.js";
 import { server } from "./gulp/tasks/server.js";
 // function for scss files
 import { scss } from "./gulp/tasks/scss.js";
+// function for js files
+import { js } from "./gulp/tasks/js.js";
+// function for images files
+import { images } from "./gulp/tasks/images.js";
 //--------- IMPORT TASKS END ---------
 
 // Watching on the "srcFolder"
@@ -22,8 +26,10 @@ function watcher() {
   gulp.watch(path.watch.files, copy);
   gulp.watch(path.watch.html, html);
   gulp.watch(path.watch.scss, scss);
+  gulp.watch(path.watch.js, js);
+  gulp.watch(path.watch.images, images);
 }
-const mainTasks = gulp.parallel(copy, html, scss);
+const mainTasks = gulp.parallel(copy, html, scss, js, images);
 // Build execute scenes task
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 // Execute default Scene

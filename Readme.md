@@ -17,3 +17,12 @@
 "gulp-replace" - для замены пути
 "gulp-sass" - для компиляции sass
 "gulp-version-number" - для добавления уник.идентификатора к файлам,чтобы не кешировались
+"gulp-autoprefixer" - добавление вендорных префиксов
+"gulp-clean-css" - сжатие css
+"gulp-group-css-media-queries" - группировка медиа запросов
+"gulp-webpcss" - вывод WEBP изображений
+"webp-converter" - для работы gulp-webpcss
+"webpack-stream" - для js файлов
+"gulp-webp" - для images
+"gulp-imagemin" - для конвертированния в webp
+"gulp-newer" - для проверки, обновилась ли картинка действительно 

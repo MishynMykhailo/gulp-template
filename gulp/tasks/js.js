@@ -4,9 +4,13 @@ import { plugins } from "../config/plugins.js";
 import webpack from "webpack-stream";
 import { handlerErrors } from "../helpers/handleErrors.js";
 
+const args = process.argv.slice(2);
+const isDev = args.includes("--dev");
+const isBuild = args.includes("--production");
+
 export function js() {
   const configWebpack = {
-    mode: "development",
+    mode: isDev ? "development" : isBuild ? "production" : "development",
     output: {
       filename: "app.min.js",
     },

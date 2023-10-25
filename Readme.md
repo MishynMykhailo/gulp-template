@@ -25,4 +25,8 @@
 "webpack-stream" - для js файлов
 "gulp-webp" - для images
 "gulp-imagemin" - для конвертированния в webp
-"gulp-newer" - для проверки, обновилась ли картинка действительно 
+"gulp-newer" - для проверки, обновилась ли картинка действительно
+"gulp-fonter" -
+"gulp-ttf2woff2" -
+"gulp-svg-sprite" - для собрки всех svg в спрайт
+"gulp-zip" - для создания zip

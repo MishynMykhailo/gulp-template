@@ -19,6 +19,12 @@ import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 // function for images files
 import { images } from "./gulp/tasks/images.js";
+// function for fonts files
+import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
+// function for svg-sprites
+import { svgSprites } from "./gulp/tasks/svgSprites.js";
+// function for zip archive
+import { zip } from "./gulp/tasks/zip.js";
 //--------- IMPORT TASKS END ---------
 
 // Watching on the "srcFolder"
@@ -29,8 +35,18 @@ function watcher() {
   gulp.watch(path.watch.js, js);
   gulp.watch(path.watch.images, images);
 }
-const mainTasks = gulp.parallel(copy, html, scss, js, images);
+
+export { svgSprites };
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+
+const mainTasks = gulp.series(
+  fonts,
+  gulp.parallel(copy, html, scss, js, images)
+);
 // Build execute scenes task
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+const deployZip = gulp.series(reset, mainTasks, zip);
 // Execute default Scene
 gulp.task("default", dev);
+export { dev, build, deployZip };
